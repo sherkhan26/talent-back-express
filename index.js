@@ -12,9 +12,9 @@ import { handleValidationErrors, checkAuth } from './utils/index.js';
 import { UserController, PostController } from './controllers/index.js';
 
 mongoose
-    .connect('mongodb+srv://sherhan26:wwwwww@cluster0.ex18bls.mongodb.net/blog?retryWrites=true&w=majority')
+    .connect(process.env.MONGO_URL)
     .then(() => console.log('DB ok'))
-    .catch((err) => console.log('DB error', err))
+    .catch((err) => console.log('DB error', err));
 
 const app = express();
 
@@ -66,5 +66,5 @@ app.listen(process.env.PORT || 4444, (err) => {
     return console.log(err, 'Sherkhan not connect with server');
   }
 
-  console.log('Server OK');
+  console.log('Server OK', 'Sherkhan not connect with server');
 });
